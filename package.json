@@ -1,0 +1,20 @@
+{
+  "name": "facnrecipe",
+  "version": "1.0.0",
+  "description": "recipe application for facn",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/facn2/facnrecipe.git"
+  },
+  "author": "Paul,Leo,Heather",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/facn2/facnrecipe/issues"
+  },
+  "homepage": "https://github.com/facn2/facnrecipe#readme"
+
+}
