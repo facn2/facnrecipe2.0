@@ -11,6 +11,7 @@ cancelButton.addEventListener('click', function(e) {
 var div = document.getElementById("recipe-container");
 //div for showing the result
 
+//I know I need to refactor this
 var asian = document.createElement("div");
 asian.setAttribute("id", "asian");
 asian.setAttribute("class", "asian");
@@ -89,7 +90,6 @@ function updateDom(err, data) {
     var goBack = document.createElement('div');
     goBack.innerText = "Go Back";
     ul.appendChild(goBack);
-    //goBack.setAttribute("class", )
     goBack.addEventListener('click', function() {
       ul.classList.add("disappear");
       buttonContainer.classList.remove("disappear");
@@ -113,6 +113,3 @@ function updateDom(err, data) {
     div.replaceChild(ul, div.firstChild);
   }
 }
-
-
-//request('/users', updateDom);
