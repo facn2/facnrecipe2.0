@@ -1,8 +1,19 @@
 * {
-   list-style: none;
+  list-style: none;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 0.1rem solid gray;
 }
 
 .disappear {
-   display: none;
-   
+  display: none;
+}
+
+.asian, .arabic, .british, .italian {
+  width: 45%;
+  height: 8rem;
+  border: 0.1rem solid powderblue;
 }
