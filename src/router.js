@@ -1,6 +1,7 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
+const qs = require('querystring');
 const pg = require('pg');
 const getData = require('./getData');
 const dbConnection = require('../database/db_connection');
@@ -62,28 +63,35 @@ const router = (request, response) => {
       });
       response.end(data);
     });
-  }
+  } else if (endpoint === 'add') {
+    let str = '';
+    request.on('data', (chunk) => {
+      str += chunk;
+    });
+    request.on('end', () => {
+      const {
+        name,
+        ingredients,
+        directions,
+        origin
+      } = qs.parse(str);
+      console.log(name, ingredients, directions, origin);
 
-  // else if (endpoint === 'create-user') {
-  //   let str = '';
-  //   request.on('data', (chunk) => {
-  //     str += chunk;
-  //   });
-  //   request.on('end', () => {
-  //     const name = str.split('&')[0].split('name=')[1];
-  //     const location = str.split('&')[1].split('location=')[1];
-  //     const updateData = `INSERT INTO users (name, location) VALUES ('${name}','${location}');`;
-  //     dbConnection.query(updateData, (err, res) => {
-  //       if (err) console.log(err);
-  //       console.log('new data entered');
-  //     });
-  //     response.writeHead(302, {
-  //       'location': '/'
-  //     });
-  //     response.end();
-  //   });
-  // }
-  else if (endpoint.indexOf('views') !== -1) {
+      const updateData = `INSERT INTO recipe (recipe_name, recipe_ingredients, recipe_directions, recipe_origin) VALUES ('${name}','${ingredients}','${directions}','${origin}');`;
+      dbConnection.query(updateData, (err, res) => {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log('new data entered')
+        }
+      });
+      response.writeHead(302, {
+        'location': '/'
+      });
+      response.end();
+    });
+
+  } else if (endpoint.indexOf('views') !== -1) {
     const fileName = request.url;
     const fileType = request.url.split(".")[1];
     const filePath = path.join(__dirname, "..", fileName);
@@ -105,5 +113,7 @@ const router = (request, response) => {
   }
 
 };
+
+
 
 module.exports = router;

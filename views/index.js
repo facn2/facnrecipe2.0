@@ -1,3 +1,13 @@
+var addButton = document.getElementById('add-recipe');
+addButton.addEventListener('click', function(e) {
+  document.getElementById("overlay").style.display = "block";
+});
+
+var cancelButton = document.getElementById('cancel');
+cancelButton.addEventListener('click', function(e) {
+  document.getElementById("overlay").style.display = "none";
+})
+
 var div = document.getElementById("recipe-container");
 //div for showing the result
 

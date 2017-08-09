@@ -10,7 +10,21 @@
 
 <body>
   <div class="add-container">
+    <button id="add-recipe" class="add-recipe" type="button" name="button">Add Your Recipe</button>
+  </div>
+  <div id="overlay">
+    <form id="add-form" class="add-form" action="/add" method="post">
+      <select name="origin">
+        <option value="Asian">Asian</option>
+        <option value="Italian">Arabic</option>
+      </select>
+      <input type="text" name="name" value="" placeholder="name" required>
+      <textarea rows="5" cols="50" name="ingredients" placeholder="put ingredients" required></textarea>
+      <textarea rows="5" cols="50" name="directions" placeholder="Please add directions kindly" required></textarea>
 
+      <button type="submit" name="button">+ Add Your Recipe</button>
+      <button id="cancel">Cancel</button>
+    </form>
   </div>
   <div id="button-container">
   </div>
