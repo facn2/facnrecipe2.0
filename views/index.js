@@ -3,28 +3,34 @@ var div = document.getElementById("recipe-container");
 
 var asian = document.createElement("div");
 asian.setAttribute("id", "asian");
+asian.setAttribute("class", "asian");
 asian.innerText = 'Asian';
 
 var arabic = document.createElement("div");
 arabic.setAttribute("id", "arabic");
-
+arabic.setAttribute("class", "arabic");
 arabic.innerText = 'Arabic';
 
 
 var italian = document.createElement("div");
 italian.setAttribute("id", "italian");
-
+italian.setAttribute("class", "italian");
 italian.innerText = 'Italian';
 
 var british = document.createElement("div");
 british.setAttribute("id", "british");
+british.setAttribute("class", "british");
 british.innerText = 'British';
 
+
+
 var buttonContainer = document.getElementById('button-container');
+buttonContainer.setAttribute("class", "button-container")
 buttonContainer.appendChild(asian);
 buttonContainer.appendChild(arabic);
 buttonContainer.appendChild(italian);
 buttonContainer.appendChild(british);
+
 
 document.getElementById('asian').addEventListener("click", function() {
   buttonContainer.classList.add("disappear");
@@ -47,20 +53,17 @@ document.getElementById('british').addEventListener("click", function() {
 })
 
 
-
 /* generic XHR request */
 
 
 function request(url, cb) {
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      cb(null, xhr.responseText);
-    } else {
-      console.log(xhr);
-      cb("error" + xhr.responseType);
-    }
-  };
+  xhr.addEventListener("load", function() {
+    cb(null, xhr.responseText);
+  });
+  xhr.addEventListener("error", function() {
+    cb("error" + xhr.responseType);
+  });
   xhr.open("GET", url, true);
   xhr.send();
 }
@@ -73,6 +76,16 @@ function updateDom(err, data) {
     var recipes = JSON.parse(data);
 
     var ul = document.createElement("ul");
+    var goBack = document.createElement('div');
+    goBack.innerText = "Go Back";
+    ul.appendChild(goBack);
+    //goBack.setAttribute("class", )
+    goBack.addEventListener('click', function() {
+      ul.classList.add("disappear");
+      buttonContainer.classList.remove("disappear");
+      goBack.classList.add("disappear");
+    })
+
     /* create a row in table for each user returned from DB */
     recipes.forEach(function(recipe) {
       var name = document.createElement("li");
@@ -87,15 +100,6 @@ function updateDom(err, data) {
       ul.appendChild(document.createElement("hr"));
     });
 
-    var goBack = document.createElement('div');
-    goBack.innerText = "Go Back";
-    ul.appendChild(goBack);
-    //goBack.setAttribute("class", )
-    goBack.addEventListener('click', function(){
-      ul.classList.add("disappear");
-      buttonContainer.classList.remove("disappear");
-      goBack.classList.add("disappear");
-   })
     div.replaceChild(ul, div.firstChild);
   }
 }

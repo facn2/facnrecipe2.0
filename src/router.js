@@ -1,10 +1,12 @@
 const http = require('http');
+const path = require('path');
 const fs = require('fs');
 const pg = require('pg');
 const getData = require('./getData');
 const dbConnection = require('../database/db_connection');
 
 const router = (request, response) => {
+
   const endpoint = request.url.split('/')[1];
 
   if (endpoint === '') {
@@ -81,10 +83,11 @@ const router = (request, response) => {
   //     response.end();
   //   });
   // }
-  else {
+  else if (endpoint.indexOf('views') !== -1) {
     const fileName = request.url;
     const fileType = request.url.split(".")[1];
-    fs.readFile(__dirname + "/../views" + fileName, function(error, file) {
+    const filePath = path.join(__dirname, "..", fileName);
+    fs.readFile(filePath, function(error, file) {
       if (error) {
         response.writeHead(500, 'Content-Type:text/html');
         response.end('<h1>Sorry, there was a problem loading this page</h1>');
@@ -96,7 +99,11 @@ const router = (request, response) => {
         response.end(file);
       }
     });
+  } else {
+    response.writeHead(404, "Content-Type:text/html");
+    response.end("<h1>404 not found</h1>");
   }
+
 };
 
 module.exports = router;
