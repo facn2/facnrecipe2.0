@@ -1,3 +1,6 @@
+var div = document.getElementById("recipe-container");
+//div for showing the result
+
 var asian = document.createElement("div");
 asian.setAttribute("id", "asian");
 asian.innerText = 'Asian';
@@ -17,11 +20,11 @@ var british = document.createElement("div");
 british.setAttribute("id", "british");
 british.innerText = 'British';
 
-var tableContainer = document.getElementById('table-container');
-tableContainer.appendChild(asian);
-tableContainer.appendChild(arabic);
-tableContainer.appendChild(italian);
-tableContainer.appendChild(british);
+var buttonContainer = document.getElementById('button-container');
+buttonContainer.appendChild(asian);
+buttonContainer.appendChild(arabic);
+buttonContainer.appendChild(italian);
+buttonContainer.appendChild(british);
 
 document.getElementById('asian').addEventListener("click", function() {
   request(`/${this.innerText}`, updateDom);
@@ -65,20 +68,23 @@ function updateDom(err, data) {
   } else {
     var recipes = JSON.parse(data);
 
-
-    var table = document.getElementById("users-table");
+    var ul = document.createElement("ul");
     /* create a row in table for each user returned from DB */
     recipes.forEach(function(recipe) {
-      var row = document.createElement("tr");
-      var name = document.createElement("td");
+      var name = document.createElement("li");
       name.innerHTML = recipe.recipe_name;
-      row.appendChild(name);
-      var ingredients = document.createElement("td");
+      ul.appendChild(name);
+      var ingredients = document.createElement("li");
       ingredients.innerHTML = recipe.recipe_ingredients;
-      row.appendChild(ingredients);
-      table.appendChild(row);
-
+      ul.appendChild(ingredients);
+      var directions = document.createElement("li");
+      directions.innerHTML = recipe.recipe_directions;
+      ul.appendChild(directions);
+      var recipeOrigin = document.createElement("li");
+      recipeOrigin.innerHTML = recipe.recipe_origin;
+      ul.appendChild(recipeOrigin);
     });
+    div.replaceChild(ul, div.firstChild);
   }
 }
 
