@@ -1,10 +1,11 @@
-fd{
+{
   "name": "facnrecipe",
   "version": "1.0.0",
   "description": "simple recipe application for facn community",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@ fd{
     "env2": "^2.2.0",
     "nodemon": "^1.11.0",
     "pg": "^7.1.0"
+  },
+  "devDependencies": {
+    "shot": "^3.4.2"
   }
 }
