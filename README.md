@@ -1,5 +1,5 @@
-# Simple recipe
-application for Founders & Coders community in Nazareth
+# FACN Recipe
+Simple recipe application for members of Founders & Coders community in Nazareth
 
 ### To get started:
 Click [here] () to start FACN Recipe application
