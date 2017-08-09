@@ -27,18 +27,22 @@ buttonContainer.appendChild(italian);
 buttonContainer.appendChild(british);
 
 document.getElementById('asian').addEventListener("click", function() {
+  buttonContainer.classList.add("disappear");
   request(`/${this.innerText}`, updateDom);
 })
 
 document.getElementById('arabic').addEventListener("click", function() {
+  buttonContainer.classList.add("disappear");
   request(`/${this.innerText}`, updateDom);
 
 })
 document.getElementById('italian').addEventListener("click", function() {
+  buttonContainer.classList.add("disappear");
   request(`/${this.innerText}`, updateDom);
 
 })
 document.getElementById('british').addEventListener("click", function() {
+  buttonContainer.classList.add("disappear");
   request(`/${this.innerText}`, updateDom);
 })
 
@@ -72,18 +76,26 @@ function updateDom(err, data) {
     /* create a row in table for each user returned from DB */
     recipes.forEach(function(recipe) {
       var name = document.createElement("li");
-      name.innerHTML = recipe.recipe_name;
+      name.innerHTML = `<strong>Title:</strong> ${recipe.recipe_name}<br><br>`;
       ul.appendChild(name);
       var ingredients = document.createElement("li");
-      ingredients.innerHTML = recipe.recipe_ingredients;
+      ingredients.innerHTML = `<strong>Ingredients:</strong> ${recipe.recipe_ingredients}<br><br>`;
       ul.appendChild(ingredients);
       var directions = document.createElement("li");
-      directions.innerHTML = recipe.recipe_directions;
+      directions.innerHTML = `<strong>Directions:</strong> ${recipe.recipe_directions}<br><br>`;
       ul.appendChild(directions);
-      var recipeOrigin = document.createElement("li");
-      recipeOrigin.innerHTML = recipe.recipe_origin;
-      ul.appendChild(recipeOrigin);
+      ul.appendChild(document.createElement("hr"));
     });
+
+    var goBack = document.createElement('div');
+    goBack.innerText = "Go Back";
+    ul.appendChild(goBack);
+    //goBack.setAttribute("class", )
+    goBack.addEventListener('click', function(){
+      ul.classList.add("disappear");
+      buttonContainer.classList.remove("disappear");
+      goBack.classList.add("disappear");
+   })
     div.replaceChild(ul, div.firstChild);
   }
 }
