@@ -19,6 +19,10 @@ body {
   overflow: scroll;
 }
 
+ul {
+  margin-bottom: 5%;
+}
+
 
 /*logo*/
 
@@ -29,6 +33,13 @@ body {
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.logo-img {
+  display: block;
+  margin: 0 auto;
+  width: 3rem;
+  height: 3.5rem;
 }
 
 .banner {
@@ -80,7 +91,7 @@ body {
   font-size: 1.5rem;
   border-radius: 5px;
   line-height: 55px;
-  border: 0.1rem solid powderblue;
+  border: 0.1rem solid #47a04b;
   background-color: black;
   opacity: 0.8;
   color: white;
@@ -89,7 +100,7 @@ body {
 }
 
 .asian:hover, .arabic:hover, .british:hover, .italian:hover {
-  color: blue;
+  color: green;
   opacity: 0.5;
 }
 
@@ -169,4 +180,73 @@ select, .add-button, .cancel-button {
   border-radius: 3px;
   border: 0.1rem black solid;
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+/*design for bigger screen devices */
+
+@media (min-width: 700px) {
+  .logo {
+    margin: 2%;
+    margin-bottom: 1%;
+    font-size: 2rem;
+  }
+  .logo-img {
+    width: 4rem;
+    height: 4.5rem;
+  }
+  main {
+    margin-top: 2%;
+  }
+  .banner>h1 {
+    font-size: 3.5rem;
+  }
+  .button-container {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .recipe-box {
+    margin: 10px auto;
+    width: 70%;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-bottom: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .add-recipe, .goback-button {
+    margin: 0;
+    margin-bottom: 5%;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 8rem;
+    height: 4rem;
+    border-radius: 3px;
+    border: 0.1rem black solid;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .recipe-name {
+    line-height: 30px;
+    width: 50%;
+    height: 3rem;
+  }
+  .ingredients {
+    width: 50%;
+    height: 130px;
+  }
+  .directions {
+    line-height: 32px;
+    font-size: 1.2rem;
+    width: 50%;
+    height: 150px;
+  }
+  .disappear {
+    display: none;
+  }
 }
