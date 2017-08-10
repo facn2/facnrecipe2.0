@@ -115,6 +115,7 @@ body {
 }
 
 select, .add-button, .cancel-button {
+  background-color: #dddddd;
   padding: 5px;
 }
 
