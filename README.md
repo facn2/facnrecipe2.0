@@ -11,8 +11,8 @@ As a student of Founders & Coders based in Nazareth, she/he can search recipes b
 + User can filter recipes by origin food type
 
 ### diagrams (schema, architecture, wire-frame):
-![Alt text](https://monosnap.com/file/37A8JtIqoB6S6TyvgCZdrPAc4TVlj8.png =250x250)
-![Alt text](https://monosnap.com/file/NXiCDsdPyZ6BbME6xSxZK1XPb5Yp0Q.png =250x250)
+![Alt text](https://monosnap.com/file/37A8JtIqoB6S6TyvgCZdrPAc4TVlj8.png){:height="50%" width="50%"}
+![Alt text](https://monosnap.com/file/NXiCDsdPyZ6BbME6xSxZK1XPb5Yp0Q.png){:height="50%" width="50%"}
 
 
 
