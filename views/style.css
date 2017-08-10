@@ -93,6 +93,9 @@ body {
   opacity: 0.5;
 }
 
+
+/*design for modal */
+
 .add-form {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -115,15 +118,6 @@ select, .add-button, .cancel-button {
   padding: 5px;
 }
 
-.recipe-box {
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  margin-bottom: 5px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
 .recipe-name {
   line-height: 30px;
   width: 90%;
@@ -144,6 +138,15 @@ select, .add-button, .cancel-button {
 
 
 /* after rendering page with result */
+
+.recipe-box {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin-bottom: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
 
 .add-button-container {
   display: flex;
