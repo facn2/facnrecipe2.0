@@ -32,6 +32,8 @@ body {
 }
 
 .banner {
+  padding-top: 3%;
+  padding-bottom: 3%;
   width: 100%;
   margin: 1.5rem 0;
   text-align: center;
@@ -60,31 +62,17 @@ body {
   justify-content: center;
 }
 
-#overlay {
-  position: fixed;
+.overlay {
   display: none;
-  width: 50%;
-  height: 50%;
-  top: 25%;
-  left: 25%;
-  right: 25%;
-  bottom: 25%;
-  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
   z-index: 2;
-  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
 }
-
-
-/*#add-form {
-  border: 1px solid black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 50px;
-  color: white;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}*/
 
 .button-container {
   width: 100%;
@@ -109,4 +97,54 @@ body {
   color: white;
   font-weight: bold;
   text-align: center;
+}
+
+.asian:hover, .arabic:hover, .british:hover, .italian:hover {
+  color: blue;
+  opacity: 0.5;
+}
+
+.helper {
+  margin-top: 35%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.add-form {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.add-form>select, input, textarea, .add-form>button {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  line-height: 32px;
+}
+
+select, .add-button, .cancel-button {
+  padding: 5px;
+}
+
+.recipe-name {
+  line-height: 30px;
+  width: 90%;
+  height: 3rem;
+}
+
+.ingredients {
+  width: 90%;
+  height: 130px;
+}
+
+.directions {
+  line-height: 32px;
+  font-size: 1.2rem;
+  width: 90%;
+  height: 150px;
 }

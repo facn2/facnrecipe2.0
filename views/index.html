@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>FACN Recipe</title>
+  <title>FACN Recipe-- Simple application to search/add recipe for FoundersandCoders Naraeth</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css?family=Slabo+27px|Chewy|PT+Sans+Narrow:400,700|Roboto:300,400,500,700|Zilla+Slab+Highlight:400,700" rel="stylesheet">
@@ -15,7 +15,7 @@
   <p class="logo">Facn Recipe</p>
   <main>
     <section class="banner">
-      <h1>what's for dinner?</h1>
+      <h1>What's for dinner?</h1>
     </section>
     <div class="add-container">
       <button id="add-recipe" class="add-recipe" type="button" name="button">Add Your Recipe </button>
@@ -23,18 +23,25 @@
   </main>
 
   <div id="overlay" class="overlay">
-    <form id="add-form" class="add-form" action="/add" method="post">
-      <select name="origin">
+    <div class="helper">
+
+
+      <form id="add-form" class="add-form" action="/add" method="post">
+        <select name="origin">
         <option value="Asian">Asian</option>
         <option value="Italian">Arabic</option>
-      </select>
-      <input type="text" name="name" value="" placeholder="name" required>
-      <textarea rows="5" cols="50" name="ingredients" placeholder="put ingredients" required></textarea>
-      <textarea rows="5" cols="50" name="directions" placeholder="Please add directions kindly" required></textarea>
+        <option value="Asian">Italian</option>
+        <option value="Asian">British</option>
 
-      <button type="submit" name="button">+ Add Your Recipe</button>
-      <button id="cancel">Cancel</button>
-    </form>
+      </select>
+        <input class="recipe-name" type="text" name="name" value="" placeholder="Title" required>
+        <textarea class="ingredients" rows="5" cols="50" name="ingredients" placeholder="Please add ingredients..." required></textarea>
+        <textarea class="directions" rows="5" cols="50" name="directions" placeholder="Please add directions..." required></textarea>
+
+        <button class="add-button" type="submit" name="button">Add Your Recipe</button>
+        <button class="cancel-button" id="cancel">Cancel</button>
+      </form>
+    </div>
   </div>
   <div id="button-container">
   </div>
@@ -44,4 +51,3 @@
 </body>
 
 </html>
-ml>
