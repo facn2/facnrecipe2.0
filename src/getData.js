@@ -2,9 +2,9 @@
 const dbConnection = require('../database/db_connection');
 
 const getData = (country, cb) => {
-   const myQuery = `SELECT * FROM recipe WHERE recipe_origin = '${country}'; `;
+   const myQuery = `SELECT * FROM recipe WHERE recipe_origin = $1; `;
 
-   dbConnection.query(myQuery, (err, res) => {
+   dbConnection.query(myQuery, [country], (err, res) => {
       if (err)
          return cb(err);
       cb(null, res.rows);

@@ -34,8 +34,8 @@ const router = (request, response) => {
             origin
          } = qs.parse(str);
 
-         const updateData = `INSERT INTO recipe (recipe_name, recipe_ingredients, recipe_directions, recipe_origin) VALUES ('${name}','${ingredients}','${directions}','${origin}');`;
-         dbConnection.query(updateData, (err, res) => {
+         const updateData = `INSERT INTO recipe (recipe_name, recipe_ingredients, recipe_directions, recipe_origin) VALUES ($1, $2, $3, $4);`;
+         dbConnection.query(updateData, [name, ingredients, directions, origin], (err, res) => {
             if (err) {
                console.log(err)
             } else {
