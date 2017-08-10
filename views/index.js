@@ -1,11 +1,11 @@
 var addButton = document.getElementById('add-recipe');
 addButton.addEventListener('click', function(e) {
-   document.getElementById("overlay").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
 });
 
 var cancelButton = document.getElementById('cancel');
 cancelButton.addEventListener('click', function(e) {
-   document.getElementById("overlay").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
 })
 
 var div = document.getElementById("recipe-container");
@@ -44,23 +44,23 @@ buttonContainer.appendChild(british);
 
 
 document.getElementById('asian').addEventListener("click", function() {
-   buttonContainer.classList.add("disappear");
-   request(`/${this.innerText}`, updateDom);
+  buttonContainer.classList.add("disappear");
+  request(`/${this.innerText}`, updateDom);
 })
 
 document.getElementById('arabic').addEventListener("click", function() {
-   buttonContainer.classList.add("disappear");
-   request(`/${this.innerText}`, updateDom);
+  buttonContainer.classList.add("disappear");
+  request(`/${this.innerText}`, updateDom);
 
 })
 document.getElementById('italian').addEventListener("click", function() {
-   buttonContainer.classList.add("disappear");
-   request(`/${this.innerText}`, updateDom);
+  buttonContainer.classList.add("disappear");
+  request(`/${this.innerText}`, updateDom);
 
 })
 document.getElementById('british').addEventListener("click", function() {
-   buttonContainer.classList.add("disappear");
-   request(`/${this.innerText}`, updateDom);
+  buttonContainer.classList.add("disappear");
+  request(`/${this.innerText}`, updateDom);
 })
 
 
@@ -68,51 +68,53 @@ document.getElementById('british').addEventListener("click", function() {
 
 
 function request(url, cb) {
-   var xhr = new XMLHttpRequest();
-   xhr.addEventListener("load", function() {
-      cb(null, xhr.responseText);
-   });
-   xhr.addEventListener("error", function() {
-      cb("error" + xhr.responseType);
-   });
-   xhr.open("GET", url, true);
-   xhr.send();
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener("load", function() {
+    cb(null, xhr.responseText);
+  });
+  xhr.addEventListener("error", function() {
+    cb("error" + xhr.responseType);
+  });
+  xhr.open("GET", url, true);
+  xhr.send();
 }
 
 
 function updateDom(err, data) {
-   if (err) {
-      console.log(err);
-   } else {
-      var recipes = JSON.parse(data);
+  if (err) {
+    console.log(err);
+  } else {
+    var recipes = JSON.parse(data);
 
-      var ul = document.createElement("ul");
-      var goBack = document.createElement('div');
-      goBack.innerText = "Go Back";
-      ul.appendChild(goBack);
-      goBack.addEventListener('click', function() {
-         ul.classList.add("disappear");
-         buttonContainer.classList.remove("disappear");
-         goBack.classList.add("disappear");
-      })
+    var ul = document.createElement("ul");
+    var goBack = document.createElement('button');
+    goBack.setAttribute("class", "goback-button");
+    goBack.innerText = "Go Back";
+    var addButtonContainer = document.getElementById('add-button-container');
+    addButtonContainer.appendChild(goBack);
+    goBack.addEventListener('click', function() {
+      ul.classList.add("disappear");
+      buttonContainer.classList.remove("disappear");
+      goBack.classList.add("disappear");
+    })
 
-      /* create a row in table for each user returned from DB */
-      recipes.forEach(function(recipe) {
-         var name = document.createElement("li");
-         // name.innerHTML = `<strong>Title:</strong> ${recipe.recipe_name}<br><br>`;
-         name.innerHTML = "<strong>Title:</strong> " + recipe.recipe_name + "<br><br>";
-         ul.appendChild(name);
-         var ingredients = document.createElement("li");
-         // ingredients.innerHTML = `<strong>Ingredients:</strong> ${recipe.recipe_ingredients}<br><br>`;
-         ingredients.innerHTML = "<strong>Ingredients:</strong> " + recipe.recipe_ingredients + " <br><br>";
-         ul.appendChild(ingredients);
-         var directions = document.createElement("li");
-         // directions.innerHTML = `<strong>Directions:</strong> ${recipe.recipe_directions}<br><br>`;
-         directions.innerHTML = "<strong>Directions:</strong> " + recipe.recipe_directions + " <br><br>";
-         ul.appendChild(directions);
-         ul.appendChild(document.createElement("hr"));
-      });
+    /* create a row in table for each user returned from DB */
+    recipes.forEach(function(recipe) {
+      var name = document.createElement("li");
+      // name.innerHTML = `<strong>Title:</strong> ${recipe.recipe_name}<br><br>`;
+      name.innerHTML = "<strong>Title:</strong> " + recipe.recipe_name + "<br><br>";
+      ul.appendChild(name);
+      var ingredients = document.createElement("li");
+      // ingredients.innerHTML = `<strong>Ingredients:</strong> ${recipe.recipe_ingredients}<br><br>`;
+      ingredients.innerHTML = "<strong>Ingredients:</strong> " + recipe.recipe_ingredients + " <br><br>";
+      ul.appendChild(ingredients);
+      var directions = document.createElement("li");
+      // directions.innerHTML = `<strong>Directions:</strong> ${recipe.recipe_directions}<br><br>`;
+      directions.innerHTML = "<strong>Directions:</strong> " + recipe.recipe_directions + " <br><br>";
+      ul.appendChild(directions);
+      ul.appendChild(document.createElement("hr"));
+    });
 
-      div.replaceChild(ul, div.firstChild);
-   }
+    div.replaceChild(ul, div.firstChild);
+  }
 }
