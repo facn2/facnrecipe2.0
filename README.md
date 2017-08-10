@@ -12,7 +12,7 @@ As a student of Founders & Coders based in Nazareth, she/he can search recipes b
 
 ### diagrams (schema, architecture, wire-frame):
 ![Alt text](https://monosnap.com/file/37A8JtIqoB6S6TyvgCZdrPAc4TVlj8.png)
-![Alt text](https://monosnap.com/file/NXiCDsdPyZ6BbME6xSxZK1XPb5Yp0Q.png | width=100)
+![Alt text](https://monosnap.com/file/NXiCDsdPyZ6BbME6xSxZK1XPb5Yp0Q.png)
 
 
 
