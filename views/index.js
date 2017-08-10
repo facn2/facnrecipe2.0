@@ -100,19 +100,24 @@ function updateDom(err, data) {
 
     /* create a row in table for each user returned from DB */
     recipes.forEach(function(recipe) {
+      var recipeBox = document.createElement("div");
+      recipeBox.setAttribute("class", "recipe-box");
       var name = document.createElement("li");
       // name.innerHTML = `<strong>Title:</strong> ${recipe.recipe_name}<br><br>`;
       name.innerHTML = "<strong>Title:</strong> " + recipe.recipe_name + "<br><br>";
-      ul.appendChild(name);
+      recipeBox.appendChild(name);
+
       var ingredients = document.createElement("li");
       // ingredients.innerHTML = `<strong>Ingredients:</strong> ${recipe.recipe_ingredients}<br><br>`;
       ingredients.innerHTML = "<strong>Ingredients:</strong> " + recipe.recipe_ingredients + " <br><br>";
-      ul.appendChild(ingredients);
+      recipeBox.appendChild(ingredients);
       var directions = document.createElement("li");
       // directions.innerHTML = `<strong>Directions:</strong> ${recipe.recipe_directions}<br><br>`;
       directions.innerHTML = "<strong>Directions:</strong> " + recipe.recipe_directions + " <br><br>";
-      ul.appendChild(directions);
-      ul.appendChild(document.createElement("hr"));
+      recipeBox.appendChild(directions);
+      ul.appendChild(recipeBox);
+
+      // ul.appendChild(document.createElement("hr"));
     });
 
     div.replaceChild(ul, div.firstChild);
