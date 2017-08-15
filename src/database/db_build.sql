@@ -1,67 +1,36 @@
 BEGIN;
 
-DROP TABLE IF EXISTS recipe;
+DROP TABLE IF EXISTS recipe, users cascade;
 
 CREATE TABLE IF NOT EXISTS recipe (
-    recipe_id           SERIAL     PRIMARY KEY,
-    recipe_name         TEXT       NOT NULL,
-    recipe_ingredients  TEXT       NOT NULL,
-    recipe_directions   TEXT       NOT NULL,
-    recipe_origin       TEXT       NOT NULL
+  id            SERIAL        PRIMARY KEY,
+  name          VARCHAR(100)  NOT NULL,
+  ingredients   TEXT          NOT NULL,
+  procedure     TEXT          NOT NULL,
+  cusine        VARCHAR(100)  NOT NULL,
+  user_id       INTEGER       DEFAULT NULL
 );
 
+CREATE TABLE IF NOT EXISTS users (
+  id            SERIAL        PRIMARY KEY,
+  username      VARCHAR(15)   NOT NULL,
+  password      VARCHAR(20)   NOT NULL,
+  name          VARCHAR(20)   DEFAULT NULL,
+  surname       VARCHAR(20)   DEFAULT NULL,
+  email         VARCHAR(30)   DEFAULT NULL
+);
 
+INSERT INTO recipe (name, ingredients, directions, cusine) VALUES
+('Falafel', '1 pound (about 2 cups) dry chickpeas/garbanzo beans - you must start with dry', 'garbanzo, salt, cumin', 'Arabic'),
+('Sushi', 'Salmon or tuna, nori paper, cucumber', 'roll fish in nori paper and you are done', 'Asian'),
+('Pasta', 'Bag of pasta, water, salt', 'Boil water, add 3 tablespoons of salt, add pasta and cook', 'Italian'),
+('Apple Padding', 'Sugar, apples, flour, butter', 'Place all ingredients in blender and call it "padding"', 'British'),
+('Crepes', 'Eggs, flour, sugar, milk, butter, salt', 'Mix everything together, put in a hot pan', 'French');
 
-INSERT INTO recipe (recipe_name, recipe_ingredients, recipe_directions, recipe_origin) VALUES ('Falafel', '1 pound (about 2 cups) dry chickpeas/garbanzo beans - you must start with dry', 'garbanzo, salt, cumin', 'Arabic');
-INSERT INTO recipe (recipe_name, recipe_ingredients, recipe_directions, recipe_origin) VALUES ('Sushi', 'Salmon or tuna, nori paper, cucumber', 'roll fish in nori paper and you are done', 'Asian');
--- INSERT INTO recipe (recipe_name, recipe_ingredients, recipe_directions, recipe_origin) VALUES ('PostgreSQL Server Programming - Second Edition', 2015, 10, 'The British Library');
--- INSERT INTO books (book_name, year, max_reservation_time, library) VALUES ('Don''t Make Me Think', 2000, 7, 'Finland national library');
--- INSERT INTO books (book_name, year, max_reservation_time, library) VALUES ('Pride and Prejudice', 1813, 21, 'The British Library');
--- INSERT INTO books (book_name, year, max_reservation_time, library) VALUES ('Harry Potter and the Philosopher''s Stone', 1998, 14, 'The British Library');
---
--- CREATE TABLE IF NOT EXISTS mentors (
---     name    TEXT,
---     location    TEXT
--- );
---
--- INSERT INTO mentors (name, location) VALUES ('Tom', 'London');
--- INSERT INTO mentors (name, location) VALUES ('Shireen', 'Nazareth');
--- INSERT INTO mentors (name, location) VALUES ('Emily', 'Nazareth');
--- INSERT INTO mentors (name, location) VALUES ('Steve', 'London');
--- INSERT INTO mentors (name, location) VALUES ('Jack', 'Nazareth');
---
--- CREATE TABLE IF NOT EXISTS posts (
---     id    INTEGER,
---     mentor_name    TEXT
--- );
---
--- INSERT INTO posts (id, mentor_name) VALUES (20, 'Steve');
--- INSERT INTO posts (id, mentor_name) VALUES (32, 'Shireen');
--- INSERT INTO posts (id, mentor_name) VALUES (44, 'Shireen');
--- INSERT INTO posts (id, mentor_name) VALUES (19, 'Tom');
--- INSERT INTO posts (id, mentor_name) VALUES (57, 'Shireen');
---
--- CREATE TABLE IF NOT EXISTS likes (
---     mentor_name    TEXT,
---     post_id    INTEGER
--- );
---
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Emily', 20);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Emily', 44);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Emily', 19);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Emily', 57);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Shireen', 20);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Shireen', 19);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Jack', 20);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Jack', 19);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Jack', 32);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Jack', 44);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Tom', 20);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Tom', 32);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Tom', 44);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Steve', 32);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Steve', 44);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Steve', 19);
--- INSERT INTO likes (mentor_name, post_id) VALUES ('Steve', 57);
---
+INSERT INTO users (username, password, name, surname, email) VALUES
+('admin', '123456', 'Facn', 'Admin', 'admin@facn.com'),
+('king', 'king', 'Matt', 'mathewdking', 'matt@mathewdking.com'),
+('heather', 'heather', 'Heather', 'Coraje', 'heather@coraje.com'),
+('stefano', 'rinoma', 'Stefano', 'Rinoma', 'stefano@rinoma.com');
+
 COMMIT;
