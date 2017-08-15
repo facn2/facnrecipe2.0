@@ -1,6 +1,6 @@
 const http = require('http');
 const pg = require('pg');
-const {handleHomeRoute, handleCuisine, addNewRecipe, handlePublic, handle404} = require('./handlers');
+const {handleHomeRoute, handleCuisine, handleNewRecipe, handlePublic, handle404} = require('./handlers');
 
 const router = (request, response) => {
 
@@ -11,7 +11,7 @@ const router = (request, response) => {
   } else if (endpoint.match("^Asian|Arabic|British|Italian$")) {
     handleCuisine(request, response);
   } else if (endpoint === 'add') {
-    addNewRecipe(request, response)
+    handleNewRecipe(request, response)
   } else if (endpoint.match(/public/)) {
     handlePublic(request, response);
   } else {

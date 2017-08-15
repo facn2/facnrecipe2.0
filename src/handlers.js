@@ -3,6 +3,8 @@ const path = require('path');
 const getData = require('./queries/getData');
 const dbConnection = require('./database/db_connection');
 const qs = require('querystring');
+const addNewRecipe = require('./queries/addData.js')
+
 
 const handleHomeRoute = (response) => {
   const filePath = path.join(__dirname, '..', 'public', 'index.html')
@@ -48,31 +50,23 @@ const handleCuisine = (request, response) => {
   });
 }
 
-const addNewRecipe = (request, response) => {
+const handleNewRecipe = (request, response) => {
   let str = '';
   request.on('data', (chunk) => {
     str += chunk;
   });
   request.on('end', () => {
-    const {
-      name,
-      ingredients,
-      directions,
-      origin
-    } = qs.parse(str);
-
-    const updateData = `INSERT INTO recipe (recipe_name, recipe_ingredients, recipe_directions, recipe_origin) VALUES ($1, $2, $3, $4);`;
-    dbConnection.query(updateData, [name, ingredients, directions, origin], (err, res) => {
+    const recipeInput = qs.parse(str);
+    addNewRecipe(recipeInput, (err) => {
       if (err) {
-        console.log(err)
-      } else {
-        console.log('new data entered');
+        response.writeHead(500, 'Content-Type: text/html');
+        response.end('we cannot add your recipe')
       }
-    });
-    response.writeHead(302, {
-      'location': '/'
-    });
-    response.end();
+      response.writeHead(302, {
+        'location': '/'
+      });
+      response.end();
+    })
   });
 }
 
@@ -90,6 +84,6 @@ module.exports = {
   handleHomeRoute,
   handlePublic,
   handleCuisine,
-  addNewRecipe,
+  handleNewRecipe,
   handle404
 };
