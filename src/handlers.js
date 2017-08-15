@@ -51,12 +51,12 @@ const handleCuisine = (request, response) => {
 }
 
 const handleNewRecipe = (request, response) => {
-  let str = '';
+  let string = '';
   request.on('data', (chunk) => {
-    str += chunk;
+    string += chunk;
   });
   request.on('end', () => {
-    const recipeInput = qs.parse(str);
+    const recipeInput = qs.parse(string);
     addNewRecipe(recipeInput, (err) => {
       if (err) {
         response.writeHead(500, 'Content-Type: text/html');
@@ -68,6 +68,40 @@ const handleNewRecipe = (request, response) => {
       response.end();
     })
   });
+}
+
+const handleLogin = (request, response) => {
+  let string = '';
+  request.on('data', (chunk) => {
+    string += chunk;
+  });
+  request.on('end', () => {
+    const loginInfo = qs.parse(string);
+    console.log(loginInfo);
+    validateLogin(loginInfo, (err) => {
+      if (err) return {
+
+      }
+    })
+  })
+}
+
+
+const handleSignup = (request, response) => {
+  let string = '';
+  request.on('data', (chunk) => {
+    string += chunk;
+  });
+  request.on('end', () => {
+    const signupInfo = qs.parse(string);
+    //console.log(signupInfo);
+    createUser(signupInfo, (err) => {
+      if (err) return {
+
+      }
+
+    })
+  })
 }
 
 const handle404 = (request, response) => {
@@ -85,5 +119,7 @@ module.exports = {
   handlePublic,
   handleCuisine,
   handleNewRecipe,
+  handleLogin,
+  handleSignup,
   handle404
 };
