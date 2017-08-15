@@ -1,10 +1,10 @@
 {
-   "name": "facnrecipe",
+   "name": "facnrecipe 2.0",
    "version": "1.0.0",
-   "description": "simple recipe application for facn community",
-   "main": "index.js",
+   "description": "Better recipe application for facn community 2.0",
+   "main": "src/server.js",
    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
+      "test": "nyc istanbul cover tape /tests/blah.test.js | tap-spec",
       "start": "node src/server.js",
       "devStart": "nodemon src/server.js"
    },
@@ -12,7 +12,7 @@
       "type": "git",
       "url": "git+https://github.com/facn2/facnrecipe.git"
    },
-   "author": "Paul, Leo, Heather",
+   "author": "King, Heather and Stefano",
    "license": "ISC",
    "bugs": {
       "url": "https://github.com/facn2/facnrecipe/issues"
@@ -20,10 +20,14 @@
    "homepage": "https://github.com/facn2/facnrecipe#readme",
    "dependencies": {
       "env2": "^2.2.0",
-      "nodemon": "^1.11.0",
       "pg": "^7.1.0"
    },
    "devDependencies": {
-      "shot": "^3.4.2"
+      "istanbul": "^0.4.5",
+      "nodemon": "^1.11.0",
+      "nyc": "^11.1.0",
+      "shot": "^3.4.2",
+      "tap-spec": "^4.1.1",
+      "tape": "^4.8.0"
    }
 }

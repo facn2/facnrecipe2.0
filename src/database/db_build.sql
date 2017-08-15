@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS users (
   email         VARCHAR(30)   DEFAULT NULL UNIQUE
 );
 
-INSERT INTO recipe (name, ingredients, directions, cusine) VALUES
+INSERT INTO recipe (name, ingredients, procedure, cusine) VALUES
 ('Falafel', '1 pound (about 2 cups) dry chickpeas/garbanzo beans - you must start with dry', 'garbanzo, salt, cumin', 'Arabic'),
 ('Sushi', 'Salmon or tuna, nori paper, cucumber', 'roll fish in nori paper and you are done', 'Asian'),
 ('Pasta', 'Bag of pasta, water, salt', 'Boil water, add 3 tablespoons of salt, add pasta and cook', 'Italian'),
