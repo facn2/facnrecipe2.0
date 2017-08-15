@@ -1,7 +1,7 @@
 const http = require('http');
 const qs = require('querystring');
 const pg = require('pg');
-const getData = require('./getData');
+const getData = require('./database/getData');
 const handlers = require('./handlers');
 const dbConnection = require('../database/db_connection');
 
