@@ -10,7 +10,7 @@ const router = (request, response) => {
   const endpoint = request.url.split('/')[1];
 
   if (endpoint === '') {
-    handlers.handlerForViews(request, response, '/views/index.html');
+    handlers.handlerForViews(request, response, '/public/index.html');
   } else if (endpoint.match("^Asian|Arabic|British|Italian$")) {
     getData(endpoint, (err, res) => {
       if (err)
@@ -48,7 +48,7 @@ const router = (request, response) => {
       response.end();
     });
 
-  } else if (endpoint.indexOf('views') !== -1) {
+  } else if (endpoint.indexOf('public') !== -1) {
     handlers.handlerForViews(request, response, request.url);
   } else {
     response.writeHead(404, "Content-Type:text/html");
