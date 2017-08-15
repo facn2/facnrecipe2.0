@@ -3,7 +3,7 @@ const qs = require('querystring');
 const pg = require('pg');
 const getData = require('./queries/getData');
 const handlers = require('./handlers');
-const dbConnection = require('../database/db_connection');
+const dbConnection = require('./database/db_connection');
 
 const router = (request, response) => {
 
