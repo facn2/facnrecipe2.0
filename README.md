@@ -40,7 +40,7 @@ As a student/mentor of Founders & Coders based in Nazareth, she/he can...
 
 ### Wireframe
 
-<iframe width="1922" height="1080" src="https://xd.adobe.com/embed/ded14afb-cf35-4a00-b8b2-f7f39760710a/" frameborder="0" allowfullscreen></iframe>
+<iframe width="1922" height="1080" src="https://xd.adobe.com/view/980d4206-8467-49ba-a9ed-f407de6e7149/" frameborder="0" allowfullscreen></iframe>
 
 ### Architecture
 ![App architecture](https://user-images.githubusercontent.com/25408167/29314857-9cb73692-81c8-11e7-9144-8a7b5e67e3c1.JPG)
@@ -68,4 +68,4 @@ As a student/mentor of Founders & Coders based in Nazareth, she/he can...
 ### Rules
 - All branches should be understood and reviewed by all team members prior to pushing/merging to master
 - Writing core functionality as a three but splitting up when team members feel comfortable
--
+- All team members must review before a branch is merged
