@@ -40,17 +40,17 @@ As a student/mentor of Founders & Coders based in Nazareth, she/he can...
 
 ### Wireframe
 
-<iframe width="1922" height="1080" src="https://xd.adobe.com/view/980d4206-8467-49ba-a9ed-f407de6e7149/" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="1080" src="https://xd.adobe.com/embed/980d4206-8467-49ba-a9ed-f407de6e7149/" frameborder="0" allowfullscreen></iframe>
 
 ### Architecture
 ![App architecture](https://user-images.githubusercontent.com/25408167/29314857-9cb73692-81c8-11e7-9144-8a7b5e67e3c1.JPG)
 
 ### To do list:   
-- [ ] create repository
-- [ ] create file structure
-- [ ] create wireframe
-- [ ] create architecture diagram
-- [ ] write this beautiful readme :tada:
+- [x] create repository
+- [x] create file structure
+- [x] create wireframe
+- [x] create architecture diagram
+- [x] write this beautiful readme :tada:
 - [ ] create server, router and handler
   - test the routes
   - refactor
