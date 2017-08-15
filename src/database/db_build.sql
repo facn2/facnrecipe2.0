@@ -13,11 +13,11 @@ CREATE TABLE IF NOT EXISTS recipe (
 
 CREATE TABLE IF NOT EXISTS users (
   id            SERIAL        PRIMARY KEY,
-  username      VARCHAR(15)   NOT NULL,
+  username      VARCHAR(15)   NOT NULL UNIQUE,
   password      VARCHAR(20)   NOT NULL,
   name          VARCHAR(20)   DEFAULT NULL,
   surname       VARCHAR(20)   DEFAULT NULL,
-  email         VARCHAR(30)   DEFAULT NULL
+  email         VARCHAR(30)   DEFAULT NULL UNIQUE
 );
 
 INSERT INTO recipe (name, ingredients, directions, cusine) VALUES
