@@ -82,10 +82,13 @@ const handleLogin = (request, response) => {
   request.on('end', () => {
     const loginInfo = qs.parse(string);
     console.log(loginInfo);
-    validateLogin(loginInfo, (err) => {
-      if (err) return {
-
+    validateLogin(loginInfo, (err, response) => {
+      if (err) {
+        console.log(err);
+        // response.writehead()
+        // response.end()
       }
+      console.log(response);
     })
   })
 }
