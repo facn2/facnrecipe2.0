@@ -4,6 +4,10 @@ const getData = require('./queries/getData');
 const dbConnection = require('./database/db_connection');
 const qs = require('querystring');
 const addNewRecipe = require('./queries/addData.js')
+const {
+  validateLogin,
+  createUser
+} = require('./queries/userData.js')
 
 
 const handleHomeRoute = (response) => {
