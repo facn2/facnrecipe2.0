@@ -19,6 +19,7 @@
    },
    "homepage": "https://github.com/facn2/facnrecipe2.0#readme",
    "dependencies": {
+      "bcryptjs": "^2.4.3",
       "env2": "^2.2.0",
       "pg": "^7.1.0"
    },
