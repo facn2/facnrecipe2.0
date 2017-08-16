@@ -9,7 +9,7 @@ const addNewRecipe = (recipeInput, callback) => {
     directions,
     origin
   } = recipeInput
-  dbConnection.query(addNewRecipeQuery, [name, ingredients, directions, origin], (err, res) => {
+  dbConnection.query(addNewRecipeQuery, [name, ingredients, directions, origin], (err) => {
     if (err) {
       console.log(err)
       return callback(err);

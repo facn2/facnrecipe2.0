@@ -1,5 +1,6 @@
 const http = require('http');
 const pg = require('pg');
+const jwt = require('jsonwebtoken');
 const {
   handleHomeRoute,
   handleCuisine,
@@ -9,6 +10,7 @@ const {
   handleSignup,
   handle404
 } = require('./handlers');
+
 
 const router = (request, response) => {
 
