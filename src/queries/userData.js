@@ -20,7 +20,7 @@ const comparePasswords = (password, hashedPassword, callback) => {
   });
 }
 
-const createUser = (userInfo, callback) => {
+const createUser = (signupInfo, callback) => {
   const insertUser = "INSERT INTO users ( username, password, name, surname, email) VALUES ($1,$2, $3, $4, $5)"
   const {
     username,
@@ -28,7 +28,7 @@ const createUser = (userInfo, callback) => {
     name,
     surname,
     email
-  } = userInfo;
+  } = signupInfo;
 
   let hashedPassword = '';
   hashPassword(password, (err, response) => {
@@ -37,12 +37,12 @@ const createUser = (userInfo, callback) => {
     }
     hashedPassword = response;
     const queryArray = [username, hashedPassword, name, surname, email];
-    dbConnection.query(insertUser, queryArray, (err, response) => {
+    dbConnection.query(insertUser, queryArray, (err) => {
       if (err) {
         return callback(err);
       }
       console.log('new user added!');
-      callback(null, response);
+      callback(null);
     })
   })
 }
@@ -60,6 +60,8 @@ const validateLogin = (loginInfo, callback) => {
   dbConnection.query(fetchPasswordQuery, queryArray, (err, response) => {
     if (err) {
       return callback(err) // err from username not existing
+    } else if (response.rows.length === 0) {
+      return callback(null, 'Incorrect username');
     } else {
       const userHashedPassword = response.rows[0].password;
       bcrypt.compare(password, userHashedPassword, (err, response) => {
