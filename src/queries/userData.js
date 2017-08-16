@@ -36,8 +36,8 @@ const createUser = (userInfo, callback) => {
       return console.log(err);
     }
     hashedPassword = response;
-    const post = [username, hashedPassword, name, surname, email];
-    dbConnection.query(insertUser, post, (err, response) => {
+    const queryArray = [username, hashedPassword, name, surname, email];
+    dbConnection.query(insertUser, queryArray, (err, response) => {
       if (err) {
         return callback(err);
       }
@@ -47,9 +47,30 @@ const createUser = (userInfo, callback) => {
   })
 }
 
-
+// fix this function so it handles errors such as incorrect username
 const validateLogin = (loginInfo, callback) => {
-  //comparePasswords
+  const {
+    username,
+    password
+  } = loginInfo;
+  // get from the database
+  const fetchPasswordQuery = 'SELECT password FROM users WHERE username = $1';
+  const queryArray = [username];
+  // compare the passwords
+  dbConnection.query(fetchPasswordQuery, queryArray, (err, response) => {
+    if (err) {
+      return callback(err) // err from username not existing
+    } else {
+      const userHashedPassword = response.rows[0].password;
+      bcrypt.compare(password, userHashedPassword, (err, response) => {
+        if (err) {
+          return callback('incorrect password'); //err is passwords dont match
+        }
+        console.log('user exists');
+        callback(null, response)
+      });
+    }
+  })
 }
 
 module.exports = {
