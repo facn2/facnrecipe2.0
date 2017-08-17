@@ -1,72 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang=en>
 
 <head>
   <meta charset="utf-8">
-  <title>FACN Recipe-- Simple application to search/add recipe for FoundersandCoders Naraeth</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FACN Recipe 2.0 -- Improved application to search/add recipes for FoundersandCoders Nazareth</title>
+  <link rel="shortcut icon" href="./public/assets/fac.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Slabo+27px|Chewy|PT+Sans+Narrow:400,700|Roboto:300,400,500,700|Zilla+Slab+Highlight:400,700" rel="stylesheet">
-
   <link rel="stylesheet" href="./public/style.css">
 </head>
 
 <body>
-  <p class="logo">Facn Recipe</p>
-  <img class="logo-img" src="./public/assets/fac.png" alt="fac-logo">
-  <button type="button" name="button">login</button>
-  <form class="" action="/login" method="post">
-    <input type="text" name="username" placeholder="username" value="">
-    <input type="text" name="password" placeholder="password" value="">
-    <button type="submit" name="submit">login</button>
-  </form>
-
-  <button type="button" name="button">sign up</button>
-  <form class="sign-up" action="/signup" method="post">
-    <input placeholder="name" type="text" name="name" value="">
-    <input placeholder="surname" type="text" name="surname" value="">
-    <input placeholder="email" type="text" name="email" value="">
-    <input placeholder="username" type="text" name="username" value="">
-    <input placeholder="password" type="text" name="password" value="">
-    <input placeholder="comfirm password" type="text" name="confirm" value="">
-    <button type="submit" name="submit">sign up</button>
-  </form>
-
-  <main>
-    <section class="banner">
-      <h1>What's for dinner?</h1>
-    </section>
-    <div class="add-container" id="add-container">
-      <div class="add-button-container" id="add-button-container">
-        <button id="add-recipe" class="add-recipe" type="button" name="button">Add Your Recipe </button>
+  <header>
+    <p class="logo">Facn Recipe 2.0</p>
+    <img class="logo-img" src="./public/assets/fac.png" alt="fac-logo">
+    <div class="button-container" id="button-container">
+      <div class="login-username">
+        <button type="button" name="button" id='openloginform'>Login</button>
+      </div>
+      <div class="signup-logout">
+        <button type="button" name="button" id='opensignupform'>Sign up</button>
       </div>
     </div>
-  </main>
+  </header>
+
+
+  <div class="topnav" id="myTopnav">
+    <a href="/">NEWEST RECIPIES</a>
+    <div class="dropdown">
+      <button class="dropbtn">CUSINE</button>
+      <div class="dropdown-content">
+        <a id="arabic">Arabic</a>
+        <a id="british">British</a>
+        <a id="italian">Italian</a>
+        <a id="asian">Asian</a>
+      </div>
+    </div>
+    <a type="button" name="button" id='add-recipe'>ADD RECIPE</a>
+  </div>
 
   <div id="overlay" class="overlay">
-    <div class="helper">
-
-
-      <form id="add-form" class="add-form" action="/add" method="post">
-        <select name="origin">
-        <option value="Asian">Asian</option>
-        <option value="Arabic">Arabic</option>
-        <option value="Italian">Italian</option>
-        <option value="British">British</option>
-      </select>
-        <input class="recipe-name" type="text" name="name" value="" placeholder="Title" required>
-        <textarea class="ingredients" rows="5" cols="50" name="ingredients" placeholder="Please add ingredients..." required></textarea>
-        <textarea class="directions" rows="5" cols="50" name="directions" placeholder="Please add directions..." required></textarea>
-
-        <button class="add-button" type="submit" name="button">Add Your Recipe</button>
-        <button class="cancel-button" id="cancel">Cancel</button>
-      </form>
+    <div class="container" id="container">
+      <div></div>
     </div>
   </div>
-  <div id="button-container">
-  </div>
-  <div id='recipe-container'>
-  </div>
+
+  <footer class='footer'>Copyright © FACN</footer>
   <script type="text/javascript" src="./public/index.js"></script>
 </body>
 
