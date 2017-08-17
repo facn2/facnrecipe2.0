@@ -18,9 +18,9 @@ const router = (request, response) => {
 
   if (endpoint === '') {
     handleHomeRoute(response);
-  } else if (endpoint.match("^Asian|Arabic|British|Italian$")) {
+  } else if (endpoint.match("^Asian|Arabic|British|Italian|Latest$")) {
     handleCuisine(request, response);
-  } else if (endpoint === 'add') {
+  } else if (endpoint.match(/add/)) {
     handleNewRecipe(request, response)
   } else if (endpoint.match(/public/)) {
     handlePublic(request, response);

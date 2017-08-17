@@ -40,10 +40,10 @@ As a student/mentor of Founders & Coders based in Nazareth, she/he can...
 
 ### Wireframe
 
-<iframe width="100%" height="1080" src="https://xd.adobe.com/embed/980d4206-8467-49ba-a9ed-f407de6e7149/" frameborder="0" allowfullscreen></iframe>
+[GO CHECK OUR WIREFRAME HERE](https://xd.adobe.com/embed/980d4206-8467-49ba-a9ed-f407de6e7149/)
 
 ### Architecture
-![App architecture](https://user-images.githubusercontent.com/25408167/29314857-9cb73692-81c8-11e7-9144-8a7b5e67e3c1.JPG)
+![App architecture](./public/assets/Routes.png)
 
 ### To do list:   
 - [x] create repository
@@ -51,13 +51,13 @@ As a student/mentor of Founders & Coders based in Nazareth, she/he can...
 - [x] create wireframe
 - [x] create architecture diagram
 - [x] write this beautiful readme :tada:
-- [ ] create server, router and handler
+- [x] create server, router and handler
   - test the routes
   - refactor
-- [ ] create the database
-- [ ] create the login and sign up forms
-- [ ] hash passwords and store in database
-- [ ] create token and save in cookie
+- [x] create the database
+- [x] create the login and sign up forms
+- [x] hash passwords and store in database
+- [x] create token and save in cookie
 - [ ] try login
 - [ ] attempt the stretch goals
 
